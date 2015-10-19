@@ -18,6 +18,8 @@ public class TrackTrace {
 	
 	TrackTraceService tracktrackservice = new TrackTraceService();
 	
+	// GET
+	// http://localhost:8080/tracktrace/webapi/tracktrace/AllTrackerStatus
 	@GET
 	@Path("/AllTrackerStatus")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -26,6 +28,8 @@ public class TrackTrace {
 		
 	}
 	
+	// GET
+	// http://localhost:8080/tracktrace/webapi/tracktrace/TrackerStatus/{TransactionType}
 	@GET
 	@Path("/TrackerStatus/{transactionType}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -34,6 +38,17 @@ public class TrackTrace {
 		
 	}
 	
+	// POST
+	// http://localhost:8080/tracktrace/webapi/tracktrace/AddTrackTrace
+	//
+	//	  {
+	//		    "errorTransactions": 0,
+	//		    "logMessage": "",
+	//		    "noOfTransProcessed": 0,
+	//		    "successfullTrans": 0,
+	//		    "totalTransactions": 500,
+	//		    "transactionType": "aaa"
+	//		  }
 	@POST
 	@Path("/AddTrackTrace")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -42,6 +57,8 @@ public class TrackTrace {
 		return tracktrackservice.addTraceAndTracker(ttm);
 	}
 	
+	// PUT
+	// http://localhost:8080/tracktrace/webapi/tracktrace/UpdateTrackTrace/{TransactionType}
 	@PUT
 	@Path("/UpdateTrackTrace/{transactionType}")
 	@Consumes(MediaType.APPLICATION_JSON)
