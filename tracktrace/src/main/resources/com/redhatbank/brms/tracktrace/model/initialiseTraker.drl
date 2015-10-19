@@ -1,0 +1,10 @@
+package com.redhatbank.slamgmt;
+
+rule "initilaiseTrackerFirst"
+when 
+   $transactionType  : TransactionTracker( transactionType == "ForeignExchange")
+   $ini : TransactionTracker(initial == "true")
+then 
+  //transactionType.totalTransactions=0;
+  transactionType.noOfTransProcessed=0;
+endcom.redhat.aml.model.Transaction( )

@@ -1,0 +1,8 @@
+package com.redhatbank.slamgmt;
+
+rule "Update SuccessfullTrans"
+when 
+   $transactionType  : TransactionTracker( transactionType == "ForeignExchange")
+then 
+  transactionType.noOfTransProcessedCounter++;
+end
