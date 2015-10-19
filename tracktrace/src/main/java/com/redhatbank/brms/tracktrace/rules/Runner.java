@@ -13,14 +13,14 @@ public class Runner {
 		
 		//Create a Fact
 		SLACriteria slCri = new SLACriteria();
-		slCri.setSlaCatalogName("CC");
+		slCri.setSlaCatalogName("NAVProdBSE");
 		
 		
 		//Determine SLA with Drools
 		SLACriteria slCriVal = determineSLA(slCri,kieBase);
 		
-		//Was our age set correctly?
-		System.out.println(slCriVal);
+		//Was our values set correctly?
+		System.out.println(slCriVal.toString()+":"+slCriVal.getTime()+":"+slCriVal.getPercentage());
 	}
 	
 	private static SLACriteria determineSLA(SLACriteria slCri, KieBase kieBase) {
