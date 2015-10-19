@@ -21,7 +21,7 @@ public class DecisionTableKieBaseProvider {
 		KieRepository kieRepository = kieServices.getRepository();
 		KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
 		
-		addResource(kieFileSystem, "com.redhatbank.brms.tracktrace.model.SLACatlogMaster.gdst");
+		addResource(kieFileSystem, "com.redhatbank.brms.tracktrace.model.SLACriteria.gdst");
 
 
 		KieBuilder kieBuilder = kieServices.newKieBuilder(kieFileSystem);

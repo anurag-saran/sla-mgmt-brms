@@ -113,7 +113,7 @@
   <imports>
     <imports/>
   </imports>
-  <packageName>com.redhatbank.slamgmt</packageName>
+  <packageName>com.redhatbank.brms.tracktrace.model</packageName>
   <tableFormat>EXTENDED_ENTRY</tableFormat>
   <data>
     <list>
