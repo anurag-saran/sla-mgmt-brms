@@ -1,0 +1,18 @@
+package com.redhat.poc.banking.slamgmtrules;
+
+import java.lang.Number;
+
+rule "TX1 SLA Warn"
+	dialect "mvel"
+	no-loop true
+	timer (int: 5s 10s)
+	when
+		BatchJobInfo( $transType : transactionType == "TX1" , pctTransComplete < 70.0 )
+		not (SLAWarn( transactionType == $transType )) 
+	then
+		SLAWarn fact0 = new SLAWarn();
+		fact0.setTransactionType( $transType );
+		fact0.setMessage( $transType + " Warning!" );
+		insert( fact0 );
+		System.out.println($transType + " Warning!");
+end

@@ -1,0 +1,15 @@
+package com.redhat.poc.banking.slamgmtrules;
+
+import java.lang.Number;
+
+rule "Calculate Percent Complete"
+	dialect "mvel"
+	no-loop true
+	when
+		$bji : BatchJobInfo( $totalTrans : totalTransactions, $transProcessed : noOfTransProcessed, $transType : transactionType)
+		not (BatchJobUpdate( transactionType == $transType )) 
+	then
+		modify( $bji ) {
+				setPctTransComplete( ( ($transProcessed * 1.0) / $totalTrans) * 100 )
+		}
+end

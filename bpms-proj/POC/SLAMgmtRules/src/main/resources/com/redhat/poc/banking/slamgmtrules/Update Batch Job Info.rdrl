@@ -1,0 +1,16 @@
+package com.redhat.poc.banking.slamgmtrules;
+
+import java.lang.Number;
+
+rule "Update Batch Job Info"
+	dialect "mvel"
+	no-loop true
+	when
+		$bju : BatchJobUpdate( $transType : transactionType, $transProcessed : noOfTransProcessed)
+		$bji : BatchJobInfo( transactionType == $transType , $totalTrans : totalTransactions, $totalTransProcessed : noOfTransProcessed)
+	then
+		modify( $bji ) {
+				setNoOfTransProcessed( $totalTransProcessed + $transProcessed )
+		}
+		retract( $bju );
+end
