@@ -33,7 +33,7 @@ public class TrackTrace {
 	}
 	
 	// GET
-	// http://localhost:8080/bankingservice/rest/AllTrackerStatus
+	// http://localhost:8080/bankingservice/rest/ClearAllTrackerStatus
 	@GET
 	@Path("/ClearAllTrackerStatus")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -72,7 +72,7 @@ public class TrackTrace {
 	}
 	
 	// PUT
-	// http://localhost:8080/tracktrace/webapi/tracktrace/UpdateTrackTrace/{TransactionType}
+	// http://localhost:8080/bankingservice/rest/UpdateTrackTrace/{TransactionType}
 	@PUT
 	@Path("/UpdateTrackTrace/{transactionType}")
 	@Consumes(MediaType.APPLICATION_JSON)
