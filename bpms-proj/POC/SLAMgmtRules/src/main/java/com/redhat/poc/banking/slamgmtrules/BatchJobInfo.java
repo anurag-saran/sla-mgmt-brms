@@ -9,14 +9,17 @@ public class BatchJobInfo implements java.io.Serializable
 
    static final long serialVersionUID = 1L;
 
-   @org.kie.api.definition.type.Label(value = "Transaction Type")
+   @org.kie.api.definition.type.Label("Transaction Type")
    private java.lang.String transactionType;
-   @org.kie.api.definition.type.Label(value = "Total Transactions")
+   @org.kie.api.definition.type.Label("Total Transactions")
    private java.lang.Integer totalTransactions;
-   @org.kie.api.definition.type.Label(value = "Number Of Transactions Processed")
+   @org.kie.api.definition.type.Label("Number Of Transactions Processed")
    private java.lang.Integer noOfTransProcessed;
-   @org.kie.api.definition.type.Label(value = "Percent Of Transactions Complete")
+   @org.kie.api.definition.type.Label("Percent Of Transactions Complete")
    private java.lang.Double pctTransComplete;
+
+   @org.kie.api.definition.type.Label(value = "currentSLAToCheck")
+   private java.lang.Double currentSLAToCheck;
 
    public BatchJobInfo()
    {
@@ -62,15 +65,26 @@ public class BatchJobInfo implements java.io.Serializable
       this.pctTransComplete = pctTransComplete;
    }
 
+   public java.lang.Double getCurrentSLAToCheck()
+   {
+      return this.currentSLAToCheck;
+   }
+
+   public void setCurrentSLAToCheck(java.lang.Double currentSLAToCheck)
+   {
+      this.currentSLAToCheck = currentSLAToCheck;
+   }
+
    public BatchJobInfo(java.lang.String transactionType,
          java.lang.Integer totalTransactions,
          java.lang.Integer noOfTransProcessed,
-         java.lang.Double pctTransComplete)
+         java.lang.Double pctTransComplete, java.lang.Double currentSLAToCheck)
    {
       this.transactionType = transactionType;
       this.totalTransactions = totalTransactions;
       this.noOfTransProcessed = noOfTransProcessed;
       this.pctTransComplete = pctTransComplete;
+      this.currentSLAToCheck = currentSLAToCheck;
    }
 
 }

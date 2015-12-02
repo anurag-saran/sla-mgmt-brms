@@ -1,0 +1,11 @@
+package com.redhat.poc.banking.slamgmtrules;
+
+import java.lang.Number;
+
+rule "ProcessSLAMessage"
+	dialect "java"
+	when
+		$msg : SLAMessage( )
+	then
+		com.redhat.slamgmt.jdg.services.JDGDataService.getJDGDataService().writeMessage($msg);
+end

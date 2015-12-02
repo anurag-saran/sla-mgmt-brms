@@ -60,7 +60,7 @@
       <isModify>false</isModify>
     </fact-data>
     <execution-trace>
-      <executionTimeResult>2</executionTimeResult>
+      <executionTimeResult>5</executionTimeResult>
       <numberOfRulesFired>3</numberOfRulesFired>
     </execution-trace>
     <expect-rule>
@@ -75,6 +75,7 @@
         <expect-field>
           <fieldName>noOfTransProcessed</fieldName>
           <expected>30</expected>
+          <actualResult>34</actualResult>
           <successResult>true</successResult>
           <explanation>[$bji] field [noOfTransProcessed] was [30].</explanation>
           <operator>==</operator>
@@ -85,7 +86,7 @@
       <anonymous>false</anonymous>
     </expect-fact>
   </fixtures>
-  <lastRunResult>2015-10-19 21:47:14.630 UTC</lastRunResult>
+  <lastRunResult>2015-10-22 13:31:20.973 UTC</lastRunResult>
   <rules/>
   <inclusive>false</inclusive>
   <packageName>com.redhat.poc.banking.slamgmtrules</packageName>

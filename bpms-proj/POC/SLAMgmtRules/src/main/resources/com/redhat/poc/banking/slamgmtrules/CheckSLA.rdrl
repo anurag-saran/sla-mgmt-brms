@@ -1,0 +1,16 @@
+package com.redhat.poc.banking.slamgmtrules;
+
+import java.lang.Number;
+
+rule "CheckSLA"
+	dialect "mvel"
+	no-loop true
+	when
+		BatchJobInfo( $currSLAToCheck : currentSLAToCheck, $pctComplete : pctTransComplete < $currSLAToCheck , $transType : transactionType)
+		not (SLAMessage( $tt : transactionType == $transType )) 
+	then
+		SLAMessage fact0 = new SLAMessage();
+		fact0.setTransactionType( $transType );
+		fact0.setMessage( "Missed SLA  "   + $currSLAToCheck );
+		insert( fact0 );
+end
